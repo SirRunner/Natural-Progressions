@@ -315,7 +315,7 @@ public abstract class BaseSpell extends CSVObject {
 
     }
 
-    private static class SpellComponents {
+    public static class SpellComponents {
 
         protected static final String VERBAL = "V";
         protected static final String SOMATIC = "S";
