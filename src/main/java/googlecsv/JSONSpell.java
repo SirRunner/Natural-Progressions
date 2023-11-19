@@ -2,8 +2,8 @@ package googlecsv;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class JSONSpell {
@@ -16,7 +16,7 @@ public class JSONSpell {
     private String range;
     private BaseSpell.SpellComponents components;
     private String duration;
-    private String effect;
+    private List<String> effect;
     private List<String> damageTypes;
     private List<String> classes;
 
@@ -29,7 +29,7 @@ public class JSONSpell {
         this.range = spell.getRange();
         this.components = spell.getComponents();
         this.duration = spell.getDuration();
-        this.effect = spell.getEffectRaw();
+        this.effect = Arrays.asList(spell.getEffectRaw().split("\\\\n"));
         this.damageTypes = spell.getDamageTypes().stream().map(Enum::name).map(String::toLowerCase).map(StringUtils::capitalize).sorted().collect(Collectors.toList());
         this.classes = spell.getClasses().stream().map(Enum::name).map(String::toLowerCase).map(StringUtils::capitalize).sorted().collect(Collectors.toList());
     }
@@ -98,11 +98,11 @@ public class JSONSpell {
         this.duration = duration;
     }
 
-    public String getEffect() {
+    public List<String> getEffect() {
         return effect;
     }
 
-    public void setEffect(String effect) {
+    public void setEffect(List<String> effect) {
         this.effect = effect;
     }
 

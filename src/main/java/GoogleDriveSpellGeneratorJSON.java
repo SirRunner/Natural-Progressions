@@ -45,7 +45,7 @@ public class GoogleDriveSpellGeneratorJSON extends GoogleDriveSpellGenerator {
             GoogleDriveSpellGeneratorJSON generator = new GoogleDriveSpellGeneratorJSON();
 
             generator.setInFileName("NP Spells - NP Spells.csv");
-            generator.setOutFileName("Spells.json");
+            generator.setOutFileName("spells.json");
             generator.setFolderName(System.getProperty("user.home") + "\\Downloads\\");
 
             generator.run();
